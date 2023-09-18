@@ -1,0 +1,476 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.header{
+    margin: 0px;
+    width: 100%;
+    height: 100px;
+    background-color: #F96167;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.headerLeft{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.main-box{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.editor{
+    /*flex-shrink: 100;*/
+    background-color: #F9E795;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-left: 180px;
+}
+.tasks-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid #f87277;
+    border-radius: 10px;
+    height: 50px;
+    width: 45rem;
+    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.left-panel, .right-panel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.task-delete{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.task-status{
+    background-color: red;
+    height: 18px;
+    width: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.task-status.done{
+    background-color: green;
+}
+
+.strikethrough{
+    text-decoration: line-through;
+}
+
+.task-title{
+    font-family: Inter;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.task-title:focus{
+    border: none;
+    outline: none;
+}
+.task-date{
+    width: 30px;
+    text-align: center;
+    font-family: Inter;
+    font-size: auto;
+    margin-right: 10px;
+}
+h2{
+    margin: none;
+    font-family: Karla, Inter;
+    font-size: 40px;
+    font-weight: bold;
+}
+.to-do-list-icon{
+    height: 60px;
+    width: 60px;
+}
+.sidebar{
+    height: 100vh;
+    width: 250px;
+    background-color: #FBEAEB;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    padding-top: 40px;
+    gap:20px;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: Karla, Inter;
+}
+.sidebar .workspace{
+    font-size: 25px;
+    font-family: Inter;
+    margin-top: 20px;
+}
+.sidebar .workspace.button:hover{
+    background-color: #fdcaca;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.sidebar .workspace.button{
+    background-color: #FBEAEB;
+    border: none;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+.sidebar #addProj{
+    background-color: #FBEAEB;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 10px;
+    font-family: Karla;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.sidebar #addProj:hover{
+    background-color: #fdcaca;
+    border-radius: 8px;
+}
+
+.sidebar .sidebar-items{
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px; 
+}
+.editor>button, .sidebar-items:hover{
+    background-color: #fdcaca;
+    border-radius: 8px;
+}
+
+.editor>button{
+    border: 1px solid black;
+    padding: 10px;
+    font-family: Karla, Inter;
+    font-size: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+.editor>button:hover{
+    background-color: #e7a2a4;
+}
+.sidebar-items>img{
+    height: 27px;
+    width: 27px;
+}
+
+.form{
+    background-color: #F3F4F6;
+    width: 20rem;
+    outline: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 5px 1rem 20px 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form>.head{
+    text-align: center;
+    font-family: Karla, Inter;
+    font-size: 20px;
+    padding: none;
+    margin: none;
+}
+.item>input{
+    background-color: white;
+    height: 3rem;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: Inter;
+    font-size: 20px;
+}
+.item>input:focus{
+    outline: none;
+}
+
+.item-status{
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+    align-content: center;
+    justify-content: flex-start;
+    font-family: Karla;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#itemDate{
+    display: none;
+}
+#status, #projectCategory{
+    height: 3rem;
+    width: 100%;
+    font-family: Karla;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.form>.item.submit>button{
+    background-color: #4ADE80;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: none;
+    border-radius: 8px;
+    font-family: Karla;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#deleteButton{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.addProjectTab{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#projectTitle{
+    height: 40px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Karla;
+}
+.projectButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+.projectButtons>button{
+    background-color: #4ADE80;
+    font-family: Inter;
+    font-size: 16px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.deleteProject{
+    background-color: #FBEAEB;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.sidebar-items.project{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.projTitleInput{
+    font-family: Inter;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    background-color: #FBEAEB;
+    text-align: center;
+}
+.sidebar-items.project:hover .projTitleInput{
+    border: none;
+    outline: none;
+    background-color: #fdcaca
+}
+.sidebar-items.project:hover .deleteProject{
+    border: none;
+    outline: none;
+    background-color: #fdcaca
+}
+
+.toggler {
+    display: flex;
+    align-items: center;
+}
+
+.toggler p {
+    font-family: Karla;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.toggler--slider {
+    width: 30px;
+    height: 18px;
+    background-color: #2B283A;
+    border-radius: 2rem;
+    margin-inline: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: content-box;
+}
+
+.toggler--slider--circle {
+    height: 17px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.toggler--light {
+    color: #2B283A;
+}
+
+
+.toggler--dark {
+    color: #D5D4D8;
+}
+
+.header.dark .toggler--slider {
+    border-color: white;
+    background-color: #F5F5F5;
+}
+
+.header.dark .toggler--slider--circle {
+    background-color: black;
+}
+
+.header.dark .toggler--light {
+    color: #918E9B;
+}
+.header.dark .toggler--dark {
+    color: #FFFFFF;
+}
+.header.dark .toggler--slider {
+    justify-content: flex-end;
+}
+
+.header.dark{
+    background-color: #352F44;
+}
+.header.dark h2{
+    color: #FAF0E6;
+}
+.sidebar.dark{
+    background-color: #B9B4C7;
+}
+.sidebar.dark #homeButton{
+    background-color: #B9B4C7;
+}
+
+.sidebar.dark #homeButton:hover{
+    background-color: #526D82;
+}
+
+
+
+.sidebar.dark .sidebar-items{
+    background-color: #B9B4C7;
+}
+
+.sidebar.dark .sidebar-items:hover{
+    background-color: #526D82;;
+}
+
+.sidebar.dark #addProj{
+    background-color: #B9B4C7;
+}
+
+.sidebar.dark #addProj:hover{
+    background-color: rgb(253, 202, 202);
+}
+
+.sidebar-items.project.dark input{
+    background-color: #B9B4C7;
+}
+.sidebar-items.project.dark button{
+    background-color: #B9B4C7;
+}
+
+.sidebar.dark #addProj:hover{
+    background-color: #526D82;
+    border-radius: 8px;
+}
+
+
+.sidebar-items.project.dark:hover{
+   background-color: #526D82;
+   border-radius: 8px;
+}
+
+
+.sidebar-items.project.dark:hover input{
+    background-color: #526D82
+}
+
+.sidebar-items.project.dark:hover button{
+    background-color: #526D82
+}
+
+.editor.dark{
+    background-color: #5C5470;
+}
+
+.editor.dark .addTaskButton{
+    background-color: #9DB2BF;
+}
+.editor.dark .addTaskButton:hover{
+    background-color: #526D82;
+}
+.editor.dark .tasks-item{
+    background-color: #E7F6F2;
+}
+.editor.dark input{
+    background-color: #E7F6F2;
+}
