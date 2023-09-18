@@ -20,7 +20,7 @@ export default function ProjectItem(props){
     };
 
     return(
-        <button className={`sidebar-items project ${props.darkMode?"dark":""}`} onClick={()=>props.onClickProj(props.projectTitle)}>
+        <button className={`sidebar-items project ${props.darkMode?"dark":""}`} onClick={() => props.onClickProj(props.projectTitle)}>
                 <img src={projectIcon}/>
                 {isEditing ? (<input value={projTitle} onChange={handleInputChange} onBlur={handleInputBlur} className="projTitleInput" autoFocus/>):
                 (<input

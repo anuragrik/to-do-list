@@ -3,7 +3,7 @@ import deleteIcon from "../images/editor-delete.png"
 
 export default function Editor(props){
     return(
-        <div className={`editor ${props.darkMode?"dark":""}`} onClick={()=>props.onClickProj(props.projectTitle)}>
+        <div className={`editor ${props.darkMode?"dark":""}`} >
             <button className="addTaskButton" onClick={props.onClickAdd}>+ Add Task</button>
             <div className = "tasks">
              {props.tasksElements}
